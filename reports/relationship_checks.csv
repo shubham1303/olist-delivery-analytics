@@ -1,0 +1,8 @@
+child,parent,non_null_child_rows,orphan_rows,orphan_distinct_values,relationship_check_passed,note
+olist_orders_dataset.csv.customer_id,olist_customers_dataset.csv.customer_id,99441,0,0,True,
+olist_order_items_dataset.csv.order_id,olist_orders_dataset.csv.order_id,112650,0,0,True,
+olist_order_payments_dataset.csv.order_id,olist_orders_dataset.csv.order_id,103886,0,0,True,
+olist_order_reviews_dataset.csv.order_id,olist_orders_dataset.csv.order_id,99224,0,0,True,
+olist_order_items_dataset.csv.product_id,olist_products_dataset.csv.product_id,112650,0,0,True,
+olist_order_items_dataset.csv.seller_id,olist_sellers_dataset.csv.seller_id,112650,0,0,True,
+olist_products_dataset.csv.product_category_name,product_category_name_translation.csv.product_category_name,32341,13,2,False,

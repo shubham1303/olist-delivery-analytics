@@ -1,0 +1,8 @@
+file,key_columns,null_key_rows,duplicate_key_rows,key_check_passed,note
+olist_customers_dataset.csv,customer_id,0,0,True,
+olist_order_items_dataset.csv,order_id | order_item_id,0,0,True,
+olist_order_payments_dataset.csv,order_id | payment_sequential,0,0,True,
+olist_orders_dataset.csv,order_id,0,0,True,
+olist_products_dataset.csv,product_id,0,0,True,
+olist_sellers_dataset.csv,seller_id,0,0,True,
+product_category_name_translation.csv,product_category_name,0,0,True,
