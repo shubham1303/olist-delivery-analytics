@@ -1,0 +1,41 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Monthly KPIs","Orders","Customers","Sellers","Order Categories","Seller Orders"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table 'Monthly KPIs'
+ref table DateTableTemplate_a1591086-1d9c-4291-b6e8-9a86271f8e4e
+ref table Orders
+ref table LocalDateTable_56fcef97-c381-4bcd-8eb7-a0c78a502121
+ref table LocalDateTable_bc0bad5d-24a9-469b-be4e-79bf1f9a6543
+ref table LocalDateTable_63760965-63da-45df-8b9b-04a0124acc18
+ref table LocalDateTable_724c59e3-acd0-42d9-9380-81f60c48e573
+ref table LocalDateTable_c8c0c9a9-cfa5-414f-8625-cf74008b9a93
+ref table LocalDateTable_d4fcd166-18b0-45d2-81e9-92208cec773c
+ref table LocalDateTable_c6341e14-b534-4441-8e09-b7fb7f08122b
+ref table LocalDateTable_26c76d2d-84df-43f0-8312-dacb34ec9150
+ref table Customers
+ref table LocalDateTable_d63ad73f-951c-453c-b994-14579b51c929
+ref table LocalDateTable_32bad796-99e7-4e98-9244-6470c07d6c0b
+ref table Sellers
+ref table LocalDateTable_080b6f06-c60b-4f08-8095-bf0d0ede3c88
+ref table LocalDateTable_1fd4f53e-319a-4217-8086-5eaa9e9e9d1c
+ref table 'Order Categories'
+ref table LocalDateTable_ebfdbfa9-2e03-4c9c-9c21-48449e48457a
+ref table LocalDateTable_0f6cfc20-d4c8-4046-b912-a79844de34b0
+ref table Date
+ref table 'KPI Measures'
+ref table 'Seller Orders'
+ref table LocalDateTable_cdfef03d-50e2-44dd-813d-6bf67c495cb3
+
+ref cultureInfo en-US
+

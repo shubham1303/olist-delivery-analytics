@@ -1,0 +1,293 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "0180b05b6d395ec97642",
+  "position": {
+    "x": 492,
+    "y": 88,
+    "z": 2000,
+    "height": 616,
+    "width": 772,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Order Categories"
+                    }
+                  },
+                  "Property": "product_category"
+                }
+              },
+              "queryRef": "Order Categories.product_category",
+              "nativeQueryRef": "product_category",
+              "displayName": "Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Category Comparable Orders"
+                }
+              },
+              "queryRef": "KPI Measures.Category Comparable Orders",
+              "nativeQueryRef": "Category Comparable Orders",
+              "displayName": "Comparable Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Category Late Orders"
+                }
+              },
+              "queryRef": "KPI Measures.Category Late Orders",
+              "nativeQueryRef": "Category Late Orders",
+              "displayName": "Late Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Category Late Delivery Rate"
+                }
+              },
+              "queryRef": "KPI Measures.Category Late Delivery Rate",
+              "nativeQueryRef": "Category Late Delivery Rate",
+              "displayName": "Late Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Category Average Review Score"
+                }
+              },
+              "queryRef": "KPI Measures.Category Average Review Score",
+              "nativeQueryRef": "Category Average Review Score",
+              "displayName": "Avg Review"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Category GMV"
+                }
+              },
+              "queryRef": "KPI Measures.Category GMV",
+              "nativeQueryRef": "Category GMV",
+              "displayName": "GMV"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KPI Measures"
+                  }
+                },
+                "Property": "Category Late Orders"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Category Scorecard (most late orders first)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "205.7D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Order Categories.product_category"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.9D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Category Comparable Orders"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.9D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Category Late Orders"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.9D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Category Late Delivery Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.9D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Category Average Review Score"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.9D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Category GMV"
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "36ac29bc4e69a50641e0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KPI Measures"
+              }
+            },
+            "Property": "Category Comparable Orders"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "k",
+              "Entity": "KPI Measures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "k"
+                        }
+                      },
+                      "Property": "Category Comparable Orders"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "100L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+table Sellers
+	lineageTag: eca411e4-416b-458b-ba58-57dadd9f357e
+
+	column seller_id
+		dataType: string
+		lineageTag: 138046d3-a20c-4158-be45-ac86224a8f5b
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_city
+		dataType: string
+		lineageTag: 2ef93b02-daa2-42bd-b475-e49dd3898a1b
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 9b1d576d-0114-4a9f-a1b2-086e311d5dda
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7b57a3b6-ea02-47b8-9ec0-f10dfa3e38c6
+		summarizeBy: none
+		sourceColumn: first_order_date
+
+		variation Variation
+			isDefault
+			relationship: 40cbc777-5a4f-46b7-a25d-2d5d9f30b9c3
+			defaultHierarchy: LocalDateTable_080b6f06-c60b-4f08-8095-bf0d0ede3c88.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column latest_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 11137805-4224-4c9c-b71e-e6eb0c34d2f3
+		summarizeBy: none
+		sourceColumn: latest_order_date
+
+		variation Variation
+			isDefault
+			relationship: b10a5560-3729-4635-b60a-879ece260341
+			defaultHierarchy: LocalDateTable_1fd4f53e-319a-4217-8086-5eaa9e9e9d1c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column total_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: bb8c4881-2276-44a7-a17b-5e4b05a5f69c
+		summarizeBy: sum
+		sourceColumn: total_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 06cda7e2-db63-4a3a-ae8a-1b1c02d9fdf1
+		summarizeBy: sum
+		sourceColumn: delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column comparable_delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 08f4bc4a-fde8-426c-bb82-61093b9b7ef9
+		summarizeBy: sum
+		sourceColumn: comparable_delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column late_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: e4c5fe9e-b058-456f-8643-a4971aa3c1a3
+		summarizeBy: sum
+		sourceColumn: late_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column sold_items
+		dataType: int64
+		formatString: 0
+		lineageTag: da598745-37ac-4292-a982-2b2441a93e9d
+		summarizeBy: sum
+		sourceColumn: sold_items
+
+		annotation SummarizationSetBy = Automatic
+
+	column noncanceled_gmv
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 70e39817-365c-47f8-a613-917f348a10fa
+		summarizeBy: sum
+		sourceColumn: noncanceled_gmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column noncanceled_freight_value
+		dataType: double
+		lineageTag: 05c7febd-3e08-4325-bdcb-01a43dd42943
+		summarizeBy: sum
+		sourceColumn: noncanceled_freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column reviewed_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: c16a3fe2-4cef-44f6-bacc-e3a90d4ebd80
+		summarizeBy: sum
+		sourceColumn: reviewed_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_rating_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 31b78c74-f994-4409-8a4b-15ec557e6f9b
+		summarizeBy: sum
+		sourceColumn: low_rating_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column average_approval_to_carrier_hours
+		dataType: double
+		lineageTag: 2027e354-0a42-4ac6-85af-07496c61579a
+		summarizeBy: sum
+		sourceColumn: average_approval_to_carrier_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_carrier_to_customer_hours
+		dataType: double
+		lineageTag: 809d5c6a-8a8d-4a74-a8fb-251ecd4cc92b
+		summarizeBy: sum
+		sourceColumn: average_carrier_to_customer_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_review_score
+		dataType: double
+		formatString: 0.00
+		lineageTag: c0792dd5-ade9-42af-900a-ebd67afa8334
+		summarizeBy: none
+		sourceColumn: average_review_score
+
+		annotation SummarizationSetBy = User
+
+	column late_delivery_rate
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 18b13dd1-1061-49e5-a8f7-05a93b495fa6
+		summarizeBy: none
+		sourceColumn: late_delivery_rate
+
+		annotation SummarizationSetBy = User
+
+	column low_rating_rate
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4dc83c65-b44e-4851-b0fb-d0b18773cce7
+		summarizeBy: none
+		sourceColumn: low_rating_rate
+
+		annotation SummarizationSetBy = User
+
+	column meets_20_delivered_order_threshold
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d67d065b-8065-47a2-b805-1cbcda645854
+		summarizeBy: none
+		sourceColumn: meets_20_delivered_order_threshold
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sellers = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost,1433", "OlistAnalytics"),
+				    analytics_v_seller_scorecard = Source{[Schema="analytics",Item="v_seller_scorecard"]}[Data]
+				in
+				    analytics_v_seller_scorecard
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,77 @@
+table Date
+	lineageTag: e7d980b6-1c2d-4735-9c54-14a4b7c4a520
+	dataCategory: Time
+
+	column Date
+		isUnique
+		isKey
+		formatString: General Date
+		lineageTag: 9e5edd66-9237-4010-b4e4-412a5220c890
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 3c48efb8-6a70-44b5-bb34-bb6a23793173
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: c54200d6-e00a-4be3-881a-eb48ce42743b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: df9803b8-44ca-4383-8baf-00cf7820b21a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		lineageTag: 97770be7-6555-47b5-94bc-c31578c5a22e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month Sort'
+		formatString: 0
+		lineageTag: 6428248e-8637-4d88-9b4f-af13783762d3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year Month Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(
+				        MIN(Orders[order_purchase_date]),
+				        MAX(Orders[order_purchase_date])
+				    ),
+				    "Year", YEAR([Date]),
+				    "Month Number", MONTH([Date]),
+				    "Month", FORMAT([Date], "MMM"),
+				    "Year Month", FORMAT([Date], "YYYY-MM"),
+				    "Year Month Sort", YEAR([Date]) * 100 + MONTH([Date])
+				)
+
+	annotation PBI_Id = 2bdfc17053da424880483f3bd16d398d
+

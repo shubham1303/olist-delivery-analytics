@@ -1,0 +1,351 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "b352c76009ab19777460",
+  "position": {
+    "x": 16,
+    "y": 88,
+    "z": 1000,
+    "height": 616,
+    "width": 1248,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Seller Orders"
+                    }
+                  },
+                  "Property": "seller_state"
+                }
+              },
+              "queryRef": "Seller Orders.seller_state",
+              "nativeQueryRef": "seller_state",
+              "displayName": "Seller State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Seller Orders"
+                    }
+                  },
+                  "Property": "customer_state"
+                }
+              },
+              "queryRef": "Seller Orders.customer_state",
+              "nativeQueryRef": "customer_state",
+              "displayName": "Customer State"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Route Comparable Orders"
+                }
+              },
+              "queryRef": "KPI Measures.Route Comparable Orders",
+              "nativeQueryRef": "Route Comparable Orders",
+              "displayName": "Comparable Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Route Late Orders"
+                }
+              },
+              "queryRef": "KPI Measures.Route Late Orders",
+              "nativeQueryRef": "Route Late Orders",
+              "displayName": "Late Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Route Late Delivery Rate"
+                }
+              },
+              "queryRef": "KPI Measures.Route Late Delivery Rate",
+              "nativeQueryRef": "Route Late Delivery Rate",
+              "displayName": "Late Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Route Carrier-to-Customer Days"
+                }
+              },
+              "queryRef": "KPI Measures.Route Carrier-to-Customer Days",
+              "nativeQueryRef": "Route Carrier-to-Customer Days",
+              "displayName": "Carrier \u2192 Customer Days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Route Approval-to-Carrier Days"
+                }
+              },
+              "queryRef": "KPI Measures.Route Approval-to-Carrier Days",
+              "nativeQueryRef": "Route Approval-to-Carrier Days",
+              "displayName": "Approval \u2192 Carrier Days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
+                    }
+                  },
+                  "Property": "Route Average Review Score"
+                }
+              },
+              "queryRef": "KPI Measures.Route Average Review Score",
+              "nativeQueryRef": "Route Average Review Score",
+              "displayName": "Avg Review"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KPI Measures"
+                  }
+                },
+                "Property": "Route Late Orders"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Seller Orders.seller_state"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Seller Orders.customer_state"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Route Comparable Orders"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Route Late Orders"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Route Late Delivery Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Route Carrier-to-Customer Days"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Route Approval-to-Carrier Days"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI Measures.Route Average Review Score"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Route Scorecard (most late orders first)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "35ed9db33e8652a5902b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KPI Measures"
+              }
+            },
+            "Property": "Route Comparable Orders"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "k",
+              "Entity": "KPI Measures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "k"
+                        }
+                      },
+                      "Property": "Route Comparable Orders"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "100L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

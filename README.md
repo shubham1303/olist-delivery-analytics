@@ -3,7 +3,7 @@
 Which sellers, product categories and regions are behind late deliveries and bad
 reviews on Olist (a Brazilian e-commerce marketplace)? This project loads the public
 Olist dataset into SQL Server, builds a clean reporting model on top of it, and
-answers that question in a Power BI dashboard (`olist_delivery_analytics.pbix`).
+answers that question in a Power BI dashboard (`powerbi/olist_delivery_analytics.pbip`).
 
 I scoped it like an analyst job at a marketplace ops team would be: a project
 charter, KPI definitions, data quality checks, and then the dashboard. Docs for all
@@ -71,7 +71,7 @@ You need Docker, the ODBC Driver 18 for SQL Server, Python 3.11+ and Power BI De
    - `sql/03_build_core_model.sql`
    - `sql/04_create_analytics_views.sql`
    - `sql/05_validate_analytics.sql` (checks the views against the expected totals)
-6. Open the .pbix and point the data source at your server if it isn't `localhost`.
+6. Open `powerbi/olist_delivery_analytics.pbip` and point the data source at your server if it isn't `localhost`.
 
 ## Repo
 
@@ -79,7 +79,7 @@ You need Docker, the ODBC Driver 18 for SQL Server, Python 3.11+ and Power BI De
 - `sql/` - numbered in the order you run them
 - `reports/` - output of the profiler
 - `docs/` - charter, KPI dictionary, model design, source audit
-- `olist_delivery_analytics.pbix` - the dashboard
+- `powerbi/` - the dashboard as a Power BI project (PBIR report + TMDL model, diffable as text)
 
 ## Data
 

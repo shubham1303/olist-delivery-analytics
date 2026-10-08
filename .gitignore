@@ -7,3 +7,7 @@ data/processed/*
 !data/processed/.gitkeep
 *.bak
 *.log
+
+# Power BI project local files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

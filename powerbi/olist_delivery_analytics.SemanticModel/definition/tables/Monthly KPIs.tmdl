@@ -1,0 +1,189 @@
+table 'Monthly KPIs'
+	lineageTag: eebd6169-0a51-4cb7-9014-2c247e13fcdc
+
+	column order_purchase_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 206f749d-915d-4149-b69f-4735ed6cb6b1
+		summarizeBy: none
+		sourceColumn: order_purchase_month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column total_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: c814b154-908e-4a2a-bd24-57e8886cc981
+		summarizeBy: sum
+		sourceColumn: total_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fabe735-7536-4c63-9427-32e9778cbf10
+		summarizeBy: sum
+		sourceColumn: delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column canceled_or_unavailable_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 9121ebd5-2acf-44e3-a94d-aa832087dc94
+		summarizeBy: sum
+		sourceColumn: canceled_or_unavailable_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column comparable_delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: b5ba48fe-a7c0-4cd7-8a24-ac9d0e24d844
+		summarizeBy: sum
+		sourceColumn: comparable_delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column late_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: fffb87d2-7a7e-4115-b0fa-100291f5b912
+		summarizeBy: sum
+		sourceColumn: late_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column reviewed_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 83352850-f49d-4efa-82c9-9e294f38d3c5
+		summarizeBy: sum
+		sourceColumn: reviewed_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_rating_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 08a91c33-b7ee-4a0e-a94c-e5cbf3bb08ec
+		summarizeBy: sum
+		sourceColumn: low_rating_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column noncanceled_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: bce9efa9-5481-4f51-bafe-dde1ff33d472
+		summarizeBy: sum
+		sourceColumn: noncanceled_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column noncanceled_gmv
+		dataType: double
+		lineageTag: 1ffeede8-9655-4646-b255-11b0347ca754
+		summarizeBy: sum
+		sourceColumn: noncanceled_gmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column noncanceled_freight_value
+		dataType: double
+		lineageTag: 263172be-0a50-400d-b24e-722f3c6755ac
+		summarizeBy: sum
+		sourceColumn: noncanceled_freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_delivery_days
+		dataType: double
+		lineageTag: b677366f-76b7-4e4f-b378-84ec82a46a43
+		summarizeBy: sum
+		sourceColumn: average_delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_review_score
+		dataType: double
+		lineageTag: f3e6bbdc-918b-44e0-94de-0f4e860fd03e
+		summarizeBy: sum
+		sourceColumn: average_review_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column delivered_order_rate
+		dataType: double
+		lineageTag: 049b60d6-b027-4b38-a1a8-20a715af7d4a
+		summarizeBy: sum
+		sourceColumn: delivered_order_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cancellation_rate
+		dataType: double
+		lineageTag: 743d4509-478a-4613-998d-72fa58c1adea
+		summarizeBy: sum
+		sourceColumn: cancellation_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column late_delivery_rate
+		dataType: double
+		lineageTag: 301f6451-50b3-470c-bdef-82ed8017db24
+		summarizeBy: sum
+		sourceColumn: late_delivery_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column low_rating_rate
+		dataType: double
+		lineageTag: d4d50445-9b59-4fa7-bda7-54ba276b2c7c
+		summarizeBy: sum
+		sourceColumn: low_rating_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_order_value
+		dataType: double
+		lineageTag: 8f6f443e-641a-46d2-bafd-b37f2d3b659c
+		summarizeBy: sum
+		sourceColumn: average_order_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Monthly KPIs' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost,1433", "OlistAnalytics"),
+				    analytics_v_monthly_kpis = Source{[Schema="analytics",Item="v_monthly_kpis"]}[Data]
+				in
+				    analytics_v_monthly_kpis
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

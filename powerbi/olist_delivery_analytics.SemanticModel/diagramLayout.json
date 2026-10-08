@@ -1,0 +1,121 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1051,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 618.38305001469371,
+            "y": -49.999999999999972
+          },
+          "nodeIndex": "Customers",
+          "nodeLineageTag": "d53b2958-5e68-4ca6-884c-2d4c872a6643",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1186.3830500146937,
+            "y": -40.577651020077667
+          },
+          "nodeIndex": "Monthly KPIs",
+          "nodeLineageTag": "eebd6169-0a51-4cb7-9014-2c247e13fcdc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -34.014889220400846
+          },
+          "nodeIndex": "Order Categories",
+          "nodeLineageTag": "60197b34-58fa-46b7-bbb5-d664b78d81f6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.20156119318523,
+            "y": -31.155302040155334
+          },
+          "nodeIndex": "Orders",
+          "nodeLineageTag": "1c5c78bf-885f-4ade-acb7-f122c09ca26f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 902.38305001469359,
+            "y": -40.577651020077667
+          },
+          "nodeIndex": "Sellers",
+          "nodeLineageTag": "eca411e4-416b-458b-ba58-57dadd9f357e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420.3830500146937,
+            "y": 59.422348979922333
+          },
+          "nodeIndex": "Date",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1654.3830500146937,
+            "y": 59.422348979922333
+          },
+          "nodeIndex": "KPI Measures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Seller Orders",
+          "nodeLineageTag": "68e39a55-b0e4-440e-818c-f3358462ce44",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

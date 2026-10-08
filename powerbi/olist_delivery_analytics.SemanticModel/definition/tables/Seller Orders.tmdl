@@ -1,0 +1,277 @@
+table 'Seller Orders'
+	lineageTag: 68e39a55-b0e4-440e-818c-f3358462ce44
+
+	column order_id
+		dataType: string
+		lineageTag: b9c7b417-2720-4ccb-9c77-e631201c96e9
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: cb272db1-6aa6-48f8-b459-9513d6de7ca1
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_code_prefix
+		dataType: int64
+		formatString: 0
+		lineageTag: e039c9b4-f286-4547-846c-72455baf07ac
+		summarizeBy: sum
+		sourceColumn: seller_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_city
+		dataType: string
+		lineageTag: dc49d8ac-3cd2-4dce-882e-813213ccc5a2
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 3cf0f921-ef0a-4136-9423-02768e30d894
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_lat
+		dataType: double
+		lineageTag: c0d3e359-44a9-47e0-b350-fbaa7a6635ec
+		summarizeBy: sum
+		sourceColumn: seller_lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column seller_lng
+		dataType: double
+		lineageTag: 17076ff6-4db4-4a5c-9735-82d5cfaba32d
+		summarizeBy: sum
+		sourceColumn: seller_lng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column order_purchase_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bd1d8e66-3cc6-4e45-8083-54901ef1a204
+		summarizeBy: none
+		sourceColumn: order_purchase_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_purchase_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8cd3026d-f773-423a-858b-2d2ac54b25cb
+		summarizeBy: none
+		sourceColumn: order_purchase_month
+
+		variation Variation
+			isDefault
+			relationship: cf9dad44-a4da-4008-99cb-668b1fd43f13
+			defaultHierarchy: LocalDateTable_cdfef03d-50e2-44dd-813d-6bf67c495cb3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_status
+		dataType: string
+		lineageTag: f933ebca-58ba-4722-9325-7216b7605396
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_delivered
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 440499f2-b244-4dbc-bb0b-4437468da2d6
+		summarizeBy: none
+		sourceColumn: is_delivered
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_canceled_or_unavailable
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f6958a9a-1f51-40a7-8d70-2aee1d1970ab
+		summarizeBy: none
+		sourceColumn: is_canceled_or_unavailable
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_comparable_delivery
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7b1e5531-b1f9-40ba-9709-c9b0f7782e72
+		summarizeBy: none
+		sourceColumn: is_comparable_delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_performance
+		dataType: string
+		lineageTag: ac8e491e-3add-4ce4-8d8e-1c885a4ad138
+		summarizeBy: none
+		sourceColumn: delivery_performance
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_late
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b34f8dc1-c0f3-4ad2-9b5b-4b9c70192236
+		summarizeBy: none
+		sourceColumn: is_late
+
+		annotation SummarizationSetBy = Automatic
+
+	column approval_to_carrier_hours
+		dataType: double
+		lineageTag: 67bac426-c5ec-4f3e-bda2-02c7caca3293
+		summarizeBy: sum
+		sourceColumn: approval_to_carrier_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column carrier_to_customer_hours
+		dataType: double
+		lineageTag: dda97ba3-4e37-43a7-ab6c-48a4488f320a
+		summarizeBy: sum
+		sourceColumn: carrier_to_customer_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column purchase_to_customer_days
+		dataType: double
+		lineageTag: c2332105-06d6-489f-9446-b9b697856bcc
+		summarizeBy: sum
+		sourceColumn: purchase_to_customer_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_state
+		dataType: string
+		lineageTag: 661d588a-154d-441f-a721-bfa6a3860241
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_seller_count
+		dataType: int64
+		formatString: 0
+		lineageTag: af95c27d-3e09-4cea-8fa4-c4cde2e98573
+		summarizeBy: sum
+		sourceColumn: order_seller_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_multi_seller_order
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8f60622c-d619-481c-8d0f-76de329cc42f
+		summarizeBy: none
+		sourceColumn: is_multi_seller_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_item_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a6ca91c-8218-4fa8-84b0-aadd8a4164d4
+		summarizeBy: sum
+		sourceColumn: seller_item_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_product_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 72a19f80-acbe-48be-a5d1-39566b42b2d4
+		summarizeBy: sum
+		sourceColumn: seller_product_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_gmv
+		dataType: double
+		lineageTag: fd82fe1a-e24d-41b2-af8e-cb49c5e69aed
+		summarizeBy: sum
+		sourceColumn: seller_gmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column seller_freight_value
+		dataType: double
+		lineageTag: 2eb3a0f4-99a4-49b8-a207-bb1967b63b70
+		summarizeBy: sum
+		sourceColumn: seller_freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column has_review
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5b7f961c-43e6-417e-9c3b-9f8696458899
+		summarizeBy: none
+		sourceColumn: has_review
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e16d6df-adef-4b21-bd8d-8b49011af092
+		summarizeBy: sum
+		sourceColumn: review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_low_rating
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0374aadc-e7b5-4a17-bdcd-c469b84ce502
+		summarizeBy: none
+		sourceColumn: is_low_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Seller Orders' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost,1433", "OlistAnalytics"),
+				    analytics_v_order_seller_performance = Source{[Schema="analytics",Item="v_order_seller_performance"]}[Data]
+				in
+				    analytics_v_order_seller_performance
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

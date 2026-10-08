@@ -1,0 +1,102 @@
+table Customers
+	lineageTag: d53b2958-5e68-4ca6-884c-2d4c872a6643
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 09192bfa-5355-4a31-855a-803ed2cda7c8
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9edc8634-75d5-47ef-af9b-7cd9b0bce28d
+		summarizeBy: none
+		sourceColumn: first_order_date
+
+		variation Variation
+			isDefault
+			relationship: 89962f34-a8b9-43b4-81ae-509badf4033b
+			defaultHierarchy: LocalDateTable_d63ad73f-951c-453c-b994-14579b51c929.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column latest_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a86fe67e-dd98-45a1-8600-1cadd7d40bf3
+		summarizeBy: none
+		sourceColumn: latest_order_date
+
+		variation Variation
+			isDefault
+			relationship: ad00c211-7b32-4d7f-ac0a-e7f0048d9fed
+			defaultHierarchy: LocalDateTable_32bad796-99e7-4e98-9244-6470c07d6c0b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column total_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 690c2602-fc41-448a-98db-6e94fad335e6
+		summarizeBy: sum
+		sourceColumn: total_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d6465f1-c178-405a-b356-3a4aacd55eaf
+		summarizeBy: sum
+		sourceColumn: delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_gmv
+		dataType: double
+		lineageTag: 8ebaa3e6-e50f-4ada-a1bf-8dc61ed85c42
+		summarizeBy: sum
+		sourceColumn: delivered_gmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column has_delivered_order
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 87720ed4-575b-4750-8db5-41fe7cbd0524
+		summarizeBy: none
+		sourceColumn: has_delivered_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_repeat_delivered_customer
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e6b27351-640d-403a-84cc-d037a6b6e210
+		summarizeBy: none
+		sourceColumn: is_repeat_delivered_customer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customers = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost,1433", "OlistAnalytics"),
+				    analytics_v_customer_repeat_summary = Source{[Schema="analytics",Item="v_customer_repeat_summary"]}[Data]
+				in
+				    analytics_v_customer_repeat_summary
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

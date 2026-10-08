@@ -1,0 +1,295 @@
+table 'KPI Measures'
+	lineageTag: 22163db7-7c5f-4f67-b2d2-476a27d1a961
+
+	measure 'Total Orders' =
+			
+			DISTINCTCOUNT(Orders[order_id])
+		formatString: 0
+		lineageTag: 6d252380-f498-422d-ae8e-b5d2aef0dd00
+
+	measure 'Delivered Orders' =
+			
+			CALCULATE(
+			    [Total Orders],
+			    Orders[is_delivered] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 873ea133-51b1-4a9d-ab13-5a79ea44e3ac
+
+	measure 'Comparable Delivered Orders' =
+			
+			CALCULATE(
+			    [Total Orders],
+			    Orders[is_comparable_delivery] = TRUE()
+			)
+		formatString: 0
+		lineageTag: d01ad7cf-77d1-47d9-a6f2-11000c0167e2
+
+	measure 'Late Orders' =
+			
+			CALCULATE(
+			    [Total Orders],
+			    Orders[is_late] = TRUE()
+			)
+		formatString: 0
+		lineageTag: d3dba04a-7327-4590-a995-e5f918caecb8
+
+	measure 'Late Delivery Rate' =
+			
+			DIVIDE(
+			    [Late Orders],
+			    [Comparable Delivered Orders]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: bd43e3a4-0bfc-4640-a9f8-171ff2237ccf
+
+	measure 'Delivered GMV' =
+			
+			CALCULATE(
+			    SUM(Orders[gmv]),
+			    Orders[is_delivered] = TRUE()
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3b44fb23-00d4-4115-a444-5ef7501c0dc8
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Average Delivery Days' =
+			
+			CALCULATE(
+			    AVERAGE(Orders[purchase_to_customer_days]),
+			    Orders[is_delivered] = TRUE()
+			)
+		formatString: 0.0
+		lineageTag: b40258d6-a3ff-4985-9245-fbe7b1547789
+
+	measure 'Average Review Score' =
+			
+			CALCULATE(
+			    AVERAGE(Orders[review_score]),
+			    Orders[has_review] = TRUE()
+			)
+		formatString: 0.00
+		lineageTag: 3590e156-a552-4d26-95b6-0d37488e19ab
+
+	measure 'Low-Rating Orders' =
+			
+			CALCULATE(
+			    [Total Orders],
+			    Orders[is_low_rating] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 07ffa076-ff72-42bb-bd27-830c420a816f
+
+	measure 'Low-Rating Rate' =
+			
+			DIVIDE(
+			    [Low-Rating Orders],
+			    CALCULATE([Total Orders], Orders[has_review] = TRUE())
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 967c2c5e-5e9b-47d6-8274-a250505bf520
+
+	measure 'Reviewed Orders' =
+			
+			CALCULATE(
+			    [Total Orders],
+			    Orders[has_review] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 2b7671ac-45c4-4080-a8a0-0fa9b3c2747b
+
+	measure 'Delivered Customers' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Orders[customer_unique_id]),
+			    Orders[is_delivered] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 09a1d5ee-eb13-445e-8d1e-fcefeb1a28c3
+
+	measure 'Repeat Delivered Customers' =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(Orders[customer_unique_id]),
+			        CALCULATE([Delivered Orders]) >= 2
+			    )
+			)
+		formatString: 0
+		lineageTag: 602aded7-c176-43b9-99dd-b833803e1b24
+
+	measure 'Repeat Customer Rate' =
+			
+			DIVIDE(
+			    [Repeat Delivered Customers],
+			    [Delivered Customers]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 60231308-660b-408d-ab04-2f7fc27f2cc9
+
+	measure 'Valid Approval-to-Carrier Hours' =
+			
+			CALCULATE(
+			    AVERAGE(Orders[approval_to_carrier_hours]),
+			    Orders[carrier_before_approval_flag] = FALSE()
+			)
+		formatString: 0.0
+		lineageTag: 2f393962-34ad-4dc8-8d30-d4504b0df0cd
+
+	measure 'Valid Carrier-to-Customer Hours' =
+			
+			CALCULATE(
+			    AVERAGE(Orders[carrier_to_customer_hours]),
+			    Orders[customer_before_carrier_flag] = FALSE()
+			)
+		formatString: 0.0
+		lineageTag: f2845905-1df5-4b14-afef-0732e7def517
+
+	measure 'Valid Approval-to-Carrier Days' =
+			
+			DIVIDE([Valid Approval-to-Carrier Hours], 24)
+		formatString: 0.0
+		lineageTag: 37946b7c-a539-4565-b5b6-63cd085f83e6
+
+	measure 'Valid Carrier-to-Customer Days' =
+			
+			DIVIDE([Valid Carrier-to-Customer Hours], 24)
+		formatString: 0.0
+		lineageTag: b9ac545e-a2fa-4428-b7bf-222954418eef
+
+	measure 'Category Orders' =
+			
+			DISTINCTCOUNT('Order Categories'[order_id])
+		formatString: 0
+		lineageTag: 6b450c37-8df4-4a9b-9faf-9d1e00fe590f
+
+	measure 'Category Comparable Orders' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Order Categories'[order_id]),
+			    'Order Categories'[is_comparable_delivery] = TRUE()
+			)
+		formatString: 0
+		lineageTag: b732198c-1c0a-4883-8c62-f12c0fb4385e
+
+	measure 'Category Late Orders' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Order Categories'[order_id]),
+			    'Order Categories'[is_late] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 4a589733-8396-4bff-9815-a3b30ed7e1aa
+
+	measure 'Category Late Delivery Rate' =
+			
+			DIVIDE(
+			    [Category Late Orders],
+			    [Category Comparable Orders]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 5e0a6702-12e0-4922-b2c6-ea23c122fa7c
+
+	measure 'Category Average Review Score' =
+			
+			CALCULATE(
+			    AVERAGE('Order Categories'[review_score]),
+			    'Order Categories'[has_review] = TRUE()
+			)
+		formatString: 0.00
+		lineageTag: 7915f214-1861-407d-a192-a404149de6f8
+
+	measure 'Category GMV' =
+			
+			CALCULATE(
+			    SUM('Order Categories'[category_gmv]),
+			    'Order Categories'[is_canceled_or_unavailable] = FALSE()
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 9cb7010d-478c-4d39-bf1d-a979ce14ea64
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Route Orders' =
+			
+			DISTINCTCOUNT('Seller Orders'[order_id])
+		formatString: 0
+		lineageTag: 43e638bf-ff49-4ffd-9a5f-9face7f0084a
+
+	measure 'Route Comparable Orders' =
+			
+			CALCULATE(
+			    [Route Orders],
+			    'Seller Orders'[is_comparable_delivery] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 4ed9742d-0a5c-4205-baed-1f161f7661ef
+
+	measure 'Route Late Orders' =
+			
+			CALCULATE(
+			    [Route Orders],
+			    'Seller Orders'[is_late] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 4c15275a-454a-43d6-b615-67e1335131df
+
+	measure 'Route Late Delivery Rate' =
+			
+			DIVIDE(
+			    [Route Late Orders],
+			    [Route Comparable Orders]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a978cbc0-5482-4225-b39d-adeae42af2a4
+
+	measure 'Route Carrier-to-Customer Days' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        AVERAGE('Seller Orders'[carrier_to_customer_hours]),
+			        'Seller Orders'[carrier_to_customer_hours] >= 0
+			    ),
+			    24
+			)
+		formatString: 0.0
+		lineageTag: 0999da06-e1e5-42fb-9fdd-d24151d2c275
+
+	measure 'Route Approval-to-Carrier Days' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        AVERAGE('Seller Orders'[approval_to_carrier_hours]),
+			        'Seller Orders'[approval_to_carrier_hours] >= 0
+			    ),
+			    24
+			)
+		formatString: 0.0
+		lineageTag: a6e26d54-705c-433b-853e-f5fefe746b04
+
+	measure 'Route Average Review Score' =
+			
+			CALCULATE(
+			    AVERAGE('Seller Orders'[review_score]),
+			    'Seller Orders'[has_review] = TRUE()
+			)
+		formatString: 0.00
+		lineageTag: a75fc9c9-c7e0-4867-b50d-7d2535eac88d
+
+	column Placeholder
+		isHidden
+		formatString: 0
+		lineageTag: 636a4929-2b04-4209-afe5-d274b1acee4a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'KPI Measures' = calculated
+		mode: import
+		source = ROW("Placeholder", BLANK())
+
+	annotation PBI_Id = 9a4edc1ff52e4933baa3d9bedb6829a1
+
