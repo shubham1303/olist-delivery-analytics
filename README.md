@@ -9,6 +9,24 @@ I scoped it like an analyst job at a marketplace ops team would be: a project
 charter, KPI definitions, data quality checks, and then the dashboard. Docs for all
 of that are in `docs/`.
 
+## The dashboard
+
+![Executive overview](docs/images/executive-overview.webp)
+
+The short version of what it shows: late orders get hammered in reviews (around
+2.3 stars vs. 4.3 for early ones), and almost all of the extra time is spent with
+the carrier, not the seller. Late orders sit about 28 days between carrier pickup
+and the customer, against ~8 for early orders. Seller handling only adds a few days.
+It's also very regional. SP is the biggest market but has a 4.5% late rate, while
+RJ and BA are above 12%.
+
+![Delivery and customer experience](docs/images/delivery-experience.webp)
+
+![Category performance](docs/images/category-performance.webp)
+
+There are also seller, route (seller state → customer state) and monthly pages
+in the report.
+
 ## Some numbers from the data
 
 From the source audit, ~99k orders between Sep 2016 and Oct 2018:
