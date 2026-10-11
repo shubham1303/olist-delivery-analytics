@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "ffe16c44386ae3bec96c",
   "position": {
-    "x": 521.6,
+    "x": 477.71428571428572,
     "y": 88,
     "z": 1200,
     "height": 112,
-    "width": 236.8,
+    "width": 282.28571428571428,
     "tabOrder": 1200
   },
   "visual": {
@@ -52,5 +52,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0bc71b7b05ef2fb30b5d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KPI Measures"
+              }
+            },
+            "Property": "Delivered GMV"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

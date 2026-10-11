@@ -57,19 +57,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "KPI Measures"
+                    "Entity": "Orders"
                   }
                 },
-                "Property": "Total Orders"
+                "Property": "delivery_performance"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "visualContainerObjects": {
@@ -129,7 +128,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'early'"
+                        "Value": "'Early'"
                       }
                     }
                   }
@@ -170,7 +169,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'on_time'"
+                        "Value": "'On time'"
                       }
                     }
                   }
@@ -211,7 +210,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'late'"
+                        "Value": "'Late'"
                       }
                     }
                   }
@@ -252,7 +251,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'unknown'"
+                        "Value": "'Unknown'"
                       }
                     }
                   }

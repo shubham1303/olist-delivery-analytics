@@ -48,7 +48,7 @@
               },
               "queryRef": "KPI Measures.Valid Carrier-to-Customer Days",
               "nativeQueryRef": "Valid Carrier-to-Customer Days",
-              "displayName": "Carrier \u2192 Customer"
+              "displayName": "Carrier → Customer"
             },
             {
               "field": {
@@ -63,7 +63,7 @@
               },
               "queryRef": "KPI Measures.Valid Approval-to-Carrier Days",
               "nativeQueryRef": "Valid Approval-to-Carrier Days",
-              "displayName": "Approval \u2192 Carrier"
+              "displayName": "Approval → Carrier"
             }
           ]
         }
@@ -72,19 +72,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "KPI Measures"
+                    "Entity": "Orders"
                   }
                 },
-                "Property": "Valid Carrier-to-Customer Days"
+                "Property": "delivery_performance"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "visualContainerObjects": {
@@ -187,7 +186,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'unknown'"
+                              "Value": "'Unknown'"
                             }
                           }
                         ]

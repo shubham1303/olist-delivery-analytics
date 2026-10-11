@@ -177,6 +177,7 @@ table Orders
 		lineageTag: 60d39ba2-18f5-49f2-8f6e-ac960d699322
 		summarizeBy: none
 		sourceColumn: delivery_performance
+		sortByColumn: delivery_outcome_order
 
 		annotation SummarizationSetBy = Automatic
 
@@ -403,14 +404,28 @@ table Orders
 
 		annotation SummarizationSetBy = Automatic
 
+	column delivery_outcome_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1592442e-9dce-413d-922d-2f2f593a4338
+		summarizeBy: none
+		sourceColumn: delivery_outcome_order
+
 	partition Orders = m
 		mode: import
 		source =
 				let
 				    Source = Sql.Database("localhost,1433", "OlistAnalytics"),
-				    analytics_v_order_summary = Source{[Schema="analytics",Item="v_order_summary"]}[Data]
+				    analytics_v_order_summary = Source{[Schema="analytics",Item="v_order_summary"]}[Data],
+				    // friendlier labels for the delivery outcome, plus a column to sort them by
+				    Relabeled = Table.TransformColumns(
+				        analytics_v_order_summary,
+				        {{"delivery_performance", each Record.FieldOrDefault([early = "Early", on_time = "On time", late = "Late", unknown = "Unknown"], _, _), type text}}
+				    ),
+				    WithOrder = Table.AddColumn(Relabeled, "delivery_outcome_order", each List.PositionOf({"Early", "On time", "Late", "Unknown"}, [delivery_performance]) + 1, Int64.Type)
 				in
-				    analytics_v_order_summary
+				    WithOrder
 
 	annotation PBI_NavigationStepName = Navigation
 

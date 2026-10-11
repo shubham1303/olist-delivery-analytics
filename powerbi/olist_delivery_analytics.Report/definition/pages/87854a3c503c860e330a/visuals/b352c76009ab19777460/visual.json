@@ -103,7 +103,7 @@
               },
               "queryRef": "KPI Measures.Route Carrier-to-Customer Days",
               "nativeQueryRef": "Route Carrier-to-Customer Days",
-              "displayName": "Carrier \u2192 Customer Days"
+              "displayName": "Carrier → Customer Days"
             },
             {
               "field": {
@@ -118,7 +118,7 @@
               },
               "queryRef": "KPI Measures.Route Approval-to-Carrier Days",
               "nativeQueryRef": "Route Approval-to-Carrier Days",
-              "displayName": "Approval \u2192 Carrier Days"
+              "displayName": "Approval → Carrier Days"
             },
             {
               "field": {
