@@ -206,7 +206,7 @@ table 'KPI Measures'
 			    SUM('Order Categories'[category_gmv]),
 			    'Order Categories'[is_canceled_or_unavailable] = FALSE()
 			)
-		formatString: \R\$ #,0.00;-\R\$ #,0.00;\R\$ #,0.00
+		formatString: \R\$ #,0;-\R\$ #,0;\R\$ #,0
 		lineageTag: 9cb7010d-478c-4d39-bf1d-a979ce14ea64
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
