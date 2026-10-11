@@ -49,10 +49,10 @@ table 'KPI Measures'
 			    SUM(Orders[gmv]),
 			    Orders[is_delivered] = TRUE()
 			)
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		formatString: \R\$ #,0.00;-\R\$ #,0.00;\R\$ #,0.00
 		lineageTag: 3b44fb23-00d4-4115-a444-5ef7501c0dc8
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure 'Average Delivery Days' =
 			
@@ -206,10 +206,10 @@ table 'KPI Measures'
 			    SUM('Order Categories'[category_gmv]),
 			    'Order Categories'[is_canceled_or_unavailable] = FALSE()
 			)
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		formatString: \R\$ #,0.00;-\R\$ #,0.00;\R\$ #,0.00
 		lineageTag: 9cb7010d-478c-4d39-bf1d-a979ce14ea64
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure 'Route Orders' =
 			
@@ -276,6 +276,33 @@ table 'KPI Measures'
 			)
 		formatString: 0.00
 		lineageTag: a75fc9c9-c7e0-4867-b50d-7d2535eac88d
+
+	measure 'Seller Late Delivery Rate' =
+			
+			DIVIDE(
+			    SUM(Sellers[late_orders]),
+			    SUM(Sellers[comparable_delivered_orders])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b9ea5813-a2c4-49e4-8795-16a1c44a600a
+
+	measure 'Seller Low-Rating Rate' =
+			
+			DIVIDE(
+			    SUM(Sellers[low_rating_orders]),
+			    SUM(Sellers[reviewed_orders])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b6b79351-e863-4530-9fab-5cd061585a89
+
+	measure 'Seller Average Review Score' =
+			
+			DIVIDE(
+			    SUMX(Sellers, Sellers[average_review_score] * Sellers[reviewed_orders]),
+			    SUM(Sellers[reviewed_orders])
+			)
+		formatString: 0.00
+		lineageTag: c5abbd01-409d-44d2-b634-aad1fa3284d4
 
 	column Placeholder
 		isHidden

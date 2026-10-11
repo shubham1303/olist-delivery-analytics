@@ -32,11 +32,6 @@ table Sellers
 		summarizeBy: none
 		sourceColumn: first_order_date
 
-		variation Variation
-			isDefault
-			relationship: 40cbc777-5a4f-46b7-a25d-2d5d9f30b9c3
-			defaultHierarchy: LocalDateTable_080b6f06-c60b-4f08-8095-bf0d0ede3c88.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -47,11 +42,6 @@ table Sellers
 		lineageTag: 11137805-4224-4c9c-b71e-e6eb0c34d2f3
 		summarizeBy: none
 		sourceColumn: latest_order_date
-
-		variation Variation
-			isDefault
-			relationship: b10a5560-3729-4635-b60a-879ece260341
-			defaultHierarchy: LocalDateTable_1fd4f53e-319a-4217-8086-5eaa9e9e9d1c.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -104,14 +94,14 @@ table Sellers
 
 	column noncanceled_gmv
 		dataType: double
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		formatString: \R\$ #,0.00;-\R\$ #,0.00;\R\$ #,0.00
 		lineageTag: 70e39817-365c-47f8-a613-917f348a10fa
 		summarizeBy: sum
 		sourceColumn: noncanceled_gmv
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column noncanceled_freight_value
 		dataType: double

@@ -16,11 +16,6 @@ table Customers
 		summarizeBy: none
 		sourceColumn: first_order_date
 
-		variation Variation
-			isDefault
-			relationship: 89962f34-a8b9-43b4-81ae-509badf4033b
-			defaultHierarchy: LocalDateTable_d63ad73f-951c-453c-b994-14579b51c929.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -31,11 +26,6 @@ table Customers
 		lineageTag: a86fe67e-dd98-45a1-8600-1cadd7d40bf3
 		summarizeBy: none
 		sourceColumn: latest_order_date
-
-		variation Variation
-			isDefault
-			relationship: ad00c211-7b32-4d7f-ac0a-e7f0048d9fed
-			defaultHierarchy: LocalDateTable_32bad796-99e7-4e98-9244-6470c07d6c0b.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 

@@ -24,11 +24,6 @@ table 'Order Categories'
 		summarizeBy: none
 		sourceColumn: order_purchase_date
 
-		variation Variation
-			isDefault
-			relationship: df911878-1759-412f-9226-d62ae383257a
-			defaultHierarchy: LocalDateTable_ebfdbfa9-2e03-4c9c-9c21-48449e48457a.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -39,11 +34,6 @@ table 'Order Categories'
 		lineageTag: 2c3a46a6-cf32-404e-b33b-4179fd5b462b
 		summarizeBy: none
 		sourceColumn: order_purchase_month
-
-		variation Variation
-			isDefault
-			relationship: 6c7b7512-ec22-4bbd-a6d4-3e9d375640d0
-			defaultHierarchy: LocalDateTable_0f6cfc20-d4c8-4046-b912-a79844de34b0.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 

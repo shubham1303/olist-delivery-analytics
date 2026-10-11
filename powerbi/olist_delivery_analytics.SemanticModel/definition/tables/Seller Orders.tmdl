@@ -80,11 +80,6 @@ table 'Seller Orders'
 		summarizeBy: none
 		sourceColumn: order_purchase_month
 
-		variation Variation
-			isDefault
-			relationship: cf9dad44-a4da-4008-99cb-668b1fd43f13
-			defaultHierarchy: LocalDateTable_cdfef03d-50e2-44dd-813d-6bf67c495cb3.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

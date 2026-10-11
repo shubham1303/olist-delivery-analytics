@@ -107,62 +107,47 @@
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Sellers"
-                        }
-                      },
-                      "Property": "late_delivery_rate"
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
                     }
                   },
-                  "Function": 1
+                  "Property": "Seller Late Delivery Rate"
                 }
               },
-              "queryRef": "Avg(Sellers.late_delivery_rate)",
-              "nativeQueryRef": "Average of late_delivery_rate",
+              "queryRef": "KPI Measures.Seller Late Delivery Rate",
+              "nativeQueryRef": "Seller Late Delivery Rate",
               "displayName": "Late Rate"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Sellers"
-                        }
-                      },
-                      "Property": "average_review_score"
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
                     }
                   },
-                  "Function": 1
+                  "Property": "Seller Average Review Score"
                 }
               },
-              "queryRef": "Avg(Sellers.average_review_score)",
-              "nativeQueryRef": "Average of average_review_score",
+              "queryRef": "KPI Measures.Seller Average Review Score",
+              "nativeQueryRef": "Seller Average Review Score",
               "displayName": "Avg Review"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Sellers"
-                        }
-                      },
-                      "Property": "low_rating_rate"
+                    "SourceRef": {
+                      "Entity": "KPI Measures"
                     }
                   },
-                  "Function": 1
+                  "Property": "Seller Low-Rating Rate"
                 }
               },
-              "queryRef": "Avg(Sellers.low_rating_rate)",
-              "nativeQueryRef": "Average of low_rating_rate",
+              "queryRef": "KPI Measures.Seller Low-Rating Rate",
+              "nativeQueryRef": "Seller Low-Rating Rate",
               "displayName": "Low-Rating Rate"
             },
             {
@@ -299,7 +284,7 @@
             }
           },
           "selector": {
-            "metadata": "Avg(Sellers.late_delivery_rate)"
+            "metadata": "KPI Measures.Seller Late Delivery Rate"
           }
         },
         {
@@ -313,7 +298,7 @@
             }
           },
           "selector": {
-            "metadata": "Avg(Sellers.average_review_score)"
+            "metadata": "KPI Measures.Seller Average Review Score"
           }
         },
         {
@@ -327,7 +312,7 @@
             }
           },
           "selector": {
-            "metadata": "Avg(Sellers.low_rating_rate)"
+            "metadata": "KPI Measures.Seller Low-Rating Rate"
           }
         },
         {
